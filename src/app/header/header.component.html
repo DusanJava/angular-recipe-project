@@ -10,19 +10,21 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Recipes </a>
+            <a class="nav-link" href="#" (click)="onSelect('recipe')">Recipes </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Shopping List </a>
+            <a class="nav-link" href="#" (click)="onSelect('shopping-list')">Shopping List </a>
           </li>
         </ul>
 
-        <ul class="navbar-nav navbar-right">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Save data</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Fetch data </a>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown" appDropDown #r="appDropDown">
+            <a href="#" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+            <ul class="dropdown-menu" [ngClass]="{'show':r.isOpen}">
+              <li><a href="#" class="dropdown-item"> Save data</a></li>
+              <li><a href="#" class="dropdown-item"> Fetch data </a></li>
+            </ul>
           </li>
         </ul>
 
@@ -30,37 +32,14 @@
     </div>
 </nav>
 
-<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
-<!--  <div class="container-fluid">-->
-<!--    <div class="navbar-header">-->
-<!--      <a href="#" class="navbar-brand">Recipe Book</a>-->
-<!--    </div>-->
-
-<!--    <div >-->
-<!--      <ul class="nav navbar-nav">-->
-<!--        <li><a href="#">Recipes</a> </li>-->
-<!--        <li><a href="#">Shopping List</a> </li>-->
-<!--      </ul>-->
-<!--      <ul class="nav navbar-nav navbar-right">-->
-
-<!--        <li class="dropdown">-->
-<!--          <ul class="dropdown-menu">-->
-<!--            <li><a href="#">Save data</a> </li>-->
-<!--            <li><a href="#">Fetch data</a> </li>-->
-<!--          </ul>-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</nav>-->
-
-<!--          <li class="nav-item dropdown">-->
-<!--            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">-->
-<!--              Dropdown-->
-<!--            </a>-->
-<!--            <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-<!--              <a class="dropdown-item" href="#">Action</a>-->
-<!--              <a class="dropdown-item" href="#">Another action</a>-->
-<!--              <div class="dropdown-divider"></div>-->
-<!--              <a class="dropdown-item" href="#">Something else here</a>-->
-
+<!--<div class="btn-group" appDropDown #r="appDropDown" >-->
+<!--  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >-->
+<!--    Manage-->
+<!--    <span class="caret"></span></button>-->
+<!--  <ul class="dropdown-menu" [ngClass]="{'show':r.isOpen}" >-->
+<!--    <li><a class="dropdown-item" style="cursor: pointer"-->
+<!--    >To Shopping List</a></li>-->
+<!--    <li><a class="dropdown-item" href="#">Edit Recipe</a></li>-->
+<!--    <li><a class="dropdown-item" href="#">Delete Recipe</a></li>-->
+<!--  </ul>-->
+<!--</div>-->
